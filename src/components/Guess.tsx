@@ -1,6 +1,5 @@
-import { Box, Grid, Paper, styled } from "@mui/material";
-import { GuessType } from "./GuessData";
-import { Feedback } from "./Feedback";
+import { Box, Grid } from "@mui/material";
+import { GuessType } from "../dataTypes/GuessData";
 import { LetterBox } from "./LetterBox";
 
 type Props = {

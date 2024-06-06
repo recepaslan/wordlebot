@@ -37,7 +37,7 @@ export function LetterBox(props: LetterBoxProps) {
 
     return (
         <Item onClick={() => { onClicked ? onClicked() : (() => { })() }}>
-            {letter}
+            {letter ? letter!.toUpperCase() : ""}
         </Item>
     );
 };

@@ -1,3 +1,7 @@
+p.title {
+    font-size: 21px;
+}
+
 p.errorView {
     color: red;
 }

@@ -1,6 +1,7 @@
 import { Grid, Paper, styled } from "@mui/material";
-import { GuessType } from "./GuessData";
+import { GuessType } from "../dataTypes/GuessData";
 import { Feedback } from "./Feedback";
+import { LetterBox } from "./LetterBox";
 
 type GuessFormProps = {
     guessNumber: number;
@@ -8,17 +9,6 @@ type GuessFormProps = {
     onClueChanged: (clue: string) => void;
 };
 
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height: 60,
-    lineHeight: '60px',
-    width: 60,
-    display: 'inline-block',
-    marginLeft: "10px",
-    marginBottom: "12px"
-}));
 
 const GuessForm = (props: GuessFormProps) => {
     const { onClueChanged } = props;
@@ -30,10 +20,10 @@ const GuessForm = (props: GuessFormProps) => {
                 <p className="title">Word to Guess: </p>
             </Grid>
             <Grid item xs={8}>
-                {props.guessState.word.split('').map((e, i) => <Item key={i} elevation={1}>{e}</Item>)}
+                {props.guessState.word.split('').map((e, i) => <LetterBox key={i} letter={e} />)}
             </Grid>
             <Grid xs={12}>
-                <Feedback onClueChanged={onClueChanged} currentGuess={props.guessState.word} isLoading={false} completed={props.guessState.completed} />
+                <Feedback onClueChanged={onClueChanged} currentGuess={props.guessState.word} isLoading={false} />
             </Grid>
         </Grid >
 

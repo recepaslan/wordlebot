@@ -7,14 +7,12 @@ import { setCharAt } from '../utilities/StringUtilities';
 type FeedBackProps = {
     currentGuess: string;
     isLoading: boolean;
-    completed?: boolean;
     onClueChanged: (clue: string) => void;
 };
 export function Feedback(props: FeedBackProps) {
     const {
         onClueChanged,
         currentGuess,
-        completed = false,
 
     } = props;
 
@@ -44,15 +42,12 @@ export function Feedback(props: FeedBackProps) {
                         <Grid container xs={12}>
                             <>
                                 {currentGuess.split('').map((e, i) => {
-                                    return (completed ?
-                                        <LetterBox letter={e} color={currentClue[i]}></LetterBox> :
-                                        <Grid key={i} xs={2} direction="column">
-                                            <LetterBox letter={e} color={currentClue[i]}></LetterBox>
-                                            <LetterBox onClicked={() => setClueIndex(i, "g")} color='green'></LetterBox>
-                                            <LetterBox onClicked={() => setClueIndex(i, "y")} color='yellow'></LetterBox>
-                                            <LetterBox onClicked={() => setClueIndex(i, "x")} color='white'></LetterBox>
-                                        </Grid>
-                                    )
+                                    return (<Grid key={i} xs={2} direction="column">
+                                        <LetterBox letter={e} color={currentClue[i]}></LetterBox>
+                                        <LetterBox onClicked={() => setClueIndex(i, "g")} color='green'></LetterBox>
+                                        <LetterBox onClicked={() => setClueIndex(i, "y")} color='yellow'></LetterBox>
+                                        <LetterBox onClicked={() => setClueIndex(i, "x")} color='white'></LetterBox>
+                                    </Grid>)
                                 })}
                             </>
                         </Grid>

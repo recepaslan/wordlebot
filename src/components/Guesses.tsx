@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { WordleRequest, fetchWordleResult } from "../api/api";
 import Guess from "./Guess";
-import { GuessType } from "./GuessData";
+import { GuessType } from "../dataTypes/GuessData";
 import { useQuery } from "@tanstack/react-query";
 import { Box, Button } from "@mui/material";
 import GuessForm from "./GuessForm";
