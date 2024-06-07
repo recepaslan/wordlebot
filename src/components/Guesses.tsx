@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { WordleRequest, fetchWordleResult } from "../api/api";
 import Guess from "./Guess";
-import { GuessType } from "../dataTypes/GuessData";
+import { GuessType, GuessesType } from "../dataTypes/GuessData";
 import { useQuery } from "@tanstack/react-query";
 import { Box, Button } from "@mui/material";
 import GuessForm from "./GuessForm";
@@ -9,7 +9,7 @@ import ErrorView from "./ErrorView";
 
 function Guesses() {
     const [requests, setRequests] = useState([] as WordleRequest);
-    const [guesses, setGuesses] = useState([] as GuessType[]);
+    const [guesses, setGuesses] = useState([] as GuessesType);
     const [currentClue, setCurrentClue] = useState("xxxxx");
     const [currentGuess, setCurrentGuess] = useState("");
     const [receivedInitialGuess, setReceivedInitialGuess] = useState(true);
